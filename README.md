@@ -1,4 +1,4 @@
-# DSA-c-language-
+# DSA(c-language)
 This is my data structures course.
 <br>
 Author-Ganesh
