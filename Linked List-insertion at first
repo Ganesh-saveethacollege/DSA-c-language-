@@ -1,0 +1,54 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node{
+  int data;
+  struct node*link;
+};
+
+void Linkedlist_travesrsal(struct node*ptr){
+    
+    while(ptr!=NULL){
+    printf("Element: %d \n",ptr ->data);
+    ptr=ptr ->link;
+    }
+}
+    struct node* insertatfirst(struct node*head,int data){
+       struct node *ptr;
+       ptr=(struct node*)malloc(sizeof(struct node));
+       ptr ->data = data;
+       ptr ->link= head;
+       return ptr;
+
+    }
+
+int main(){
+struct node*head,*second,*third,*fourth;
+head=(struct node*)malloc(sizeof(struct node));
+head ->data=45;
+head ->link=NULL;
+
+second=(struct node*)malloc(sizeof(struct node));
+second ->data=66;
+second ->link=NULL;
+head ->link=second;
+
+third=(struct node*)malloc(sizeof(struct node));
+third ->data=77;
+third->link=NULL;
+second ->link=third;
+
+fourth=(struct node*)malloc(sizeof(struct node));
+fourth ->data=88;
+fourth ->link=NULL;
+third ->link=fourth;
+printf(" elements before insertion :\n");
+Linkedlist_travesrsal(head);
+
+ head=insertatfirst(head,30);
+ printf(" elements after insertion :\n");
+
+ Linkedlist_travesrsal(head);
+
+
+    return 0;
+}
