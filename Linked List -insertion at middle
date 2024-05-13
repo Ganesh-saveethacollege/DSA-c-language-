@@ -1,0 +1,63 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node {
+    int data;
+    struct node*link;
+};
+
+void linkedlisttraversal(struct node*ptr){
+
+    while(ptr!=NULL){
+        printf("Element :%d \n",ptr ->data);
+       ptr=ptr->link;
+    }
+}
+
+struct node* linkedlistmid(struct node* head,int data,int index){
+
+struct node*ptr;
+ptr=(struct node*)malloc(sizeof(struct node));
+
+struct node*p = head;
+int i=0;
+
+while(i!=index-1){
+    p=p ->link;
+    i++;
+}
+ptr ->data = data;
+ptr ->link = p ->link;
+p->link=ptr;
+return head;
+
+}
+int main(){
+struct node*head;
+head=(struct node*)malloc(sizeof(struct node));
+head ->data=2;
+head ->link=NULL;
+struct node*second;
+second=(struct node*)malloc(sizeof(struct node));
+second ->data=3;
+second ->link=NULL;
+head ->link=second;
+struct node*third;
+third=(struct node*)malloc(sizeof(struct node));
+third ->data=4;
+third ->link=NULL;
+second ->link=third;
+
+struct node*fourth;
+fourth=(struct node*)malloc(sizeof(struct node));
+fourth ->data=5;
+fourth ->link=NULL;
+third ->link=fourth;
+
+printf("elements before insertion :");
+linkedlisttraversal(head);
+
+head=linkedlistmid(head,45,2);
+printf(" elements after insertion:");
+linkedlisttraversal(head);
+    return 0;
+}
